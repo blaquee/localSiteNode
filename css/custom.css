@@ -1,0 +1,53 @@
+/*
+ * jQuery Mobile Framework v1.2.0
+ * http://jquerymobile.com
+ *
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ */
+@font-face {
+	font-family: LetterSetA;
+	src: url('LetterSetA');
+}
+.ui-tabs-anchor {
+	font-family: LetterSetA;
+}
+.ui-accordion-header {
+	font-family: LetterSetA;
+}
+body {
+	font-family: LetterSetA;
+	background: black !important;
+}
+html {
+	height: 100%;
+}
+a.ui-body-c .ui-link:hover {
+	color: white !important;
+}
+div#tags {
+	margin-bottom: 20px;
+}
+
+div#header {
+	width: auto;
+	color: white;
+	text-align: center;
+}
+img#logo {
+	display: none;
+}
+.demoHeaders {
+	margin-top: 2em;
+}
+.ui-tabs .ui-tabs-panel {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+header a {
+	text-decoration: none;
+	color: white;
+	font-size: 50px;
+}

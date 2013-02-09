@@ -1,0 +1,75 @@
+
+<script>
+    $(function() {
+        $( "#accordion" ).accordion({
+            collapsible: true,
+            heightStyle: "content",
+			header: "> div > h3"
+        }).sortable({
+			axis: "y",
+			handle: "h3",
+			stop: function( event, ui ) {
+				// IE doesn't register the blur when sorting
+				// so trigger focusout handlers to remove .ui-state-focus
+				ui.item.children( "h3" ).triggerHandler( "focusout" );
+			}
+		});
+    });
+</script>
+<div id="accordion">
+	<div class="group">
+        <h3>Introduction</h3>
+        <div><div itemscope itemtype="http://schema.org/Person">
+				<span itemprop="name"><header><a href="https://plus.google.com/100668783035075698145?rel=author">Lee Forest</a></header></span>
+				<img id='logo' src="logo.png" itemprop="image" />
+				<span itemprop="jobTitle">Independant</span>
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<span itemprop="addressLocality">Ionia</span>,
+					<span itemprop="addressRegion">MI</span>
+					<span itemprop="postalCode">48846</span>
+				</div>
+				<span itemprop="telephone">(616)841-5538</span>
+				<a href="mailto:jane-doe@xyz.edu" itemprop="email">lee8oi@gmail.com</a>
+			</div>
+            <p>I'm a stay at home hearing impaired nerd from Michigan who enjoys a few technical hobbies. I use open source/free software on full time basis.
+			I'm also very resourceful online. I'm often the go-to guy for my friends with technical questions. I help any way I can.</p>
+        </div>
+    </div>
+    <div class="group">
+        <h3>Education</h3>
+        <div>
+            <p>Self educated in web-development/programming, GNU/Linux, information technology, computer architecture, networking technology, drawing, and wine-making.
+			Basically time is an abundance for me and curiousity & tinkering always get the best of me.</p>
+        </div>
+    </div>
+    <div class="group">
+        <h3>Networking</h3>
+        <div>
+            <p>I spend most of my time on <a href='https://plus.google.com/100668783035075698145/about' target='_blank'>Google+</a> & Gtalk.
+			I can also be found on <a href='https://www.facebook.com/lee.e.forest' target='_blank'>Facebook</a>. Although I have accounts in so many different services, I'm practically everywhere :)</p>
+        </div>
+    </div>
+    <div class="group">
+        <h3>Life</h3>
+        <div>
+            <p>Born, raised, and residing in Michigan. Grew up in Charlotte. Worked & lived in Kent county over ten years. Currently a resident of Ionia, Michigan along with
+			my wonderful girlfriend of 4+ years, <a href='https://plus.google.com/107450658029472861462/about' target='_blank'>Theresa Brooks</a>.</p>
+        </div>
+    </div>
+	<div class="group">
+        <h3>Work</h3>
+        <div>
+            <p>I'm not actually employed. And I'm not in the market for a job. Everything I do is a passion or a hobby. I have a lot of free time and I enjoy the leisure.
+			But I'm not a scrooge. I enjoy developing and sharing with people. I use all kinds of open source software in my daily life. I enjoy contributing any way I can back
+			into open source and of course helping my friends :)</p>
+        </div>
+    </div>
+	<div class="group">
+        <h3>Website</h3>
+        <div>
+            <p>Written in Node.js 0.8.15 with jQuery 1.8.3 and jQuery-UI 1.9.2. All JavaScript based frameworks. This website uses a simple & efficient design
+			to allow fast & easy content browsing on most devices & screen sizes. It also utilizes a Socket.io based websocket to extend the site with real-time capabilities.</p>
+        </div>
+    </div>
+</div>
+

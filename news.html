@@ -1,0 +1,51 @@
+
+<style>
+    .news-column { width: auto; }
+    .news-portlet { margin: 0 ; }
+    .news-portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+    .news-portlet-header .ui-icon { float: right; }
+    .news-portlet-content { padding: 0.4em; }
+</style>
+<script>
+    $(function() {
+        $( ".news-column" ).sortable({
+            connectWith: ".column"
+        });
+        $( ".news-portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+            .find( ".news-portlet-header" )
+                .addClass( "ui-widget-header ui-corner-all" )
+                .prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+                .end()
+            .find( ".news-portlet-content" );
+        $( ".news-portlet-header" ).click(function() {
+            $( this ).find('.ui-icon').toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+            $( this ).parents( ".news-portlet:first" ).find( ".news-portlet-content" ).toggle();
+        });
+        $( ".news-column" ).disableSelection();
+    });
+</script>
+<div class="news-column">
+    <div class="news-portlet">
+        <div class="news-portlet-header">Touch event support added. </div>
+        <div class="news-portlet-content">
+            (12-06-12) Touch event support has been added. Users with touch devices can drag list items around, resize the tabs box, etc. Thanks to the Touch Punch script for jQuery-UI.
+            The draggable items are pretty much just for fun. Mess things up and it will all straighten out on your next visit :)
+        </div>
+    </div>
+    <div class="news-portlet">
+        <div class="news-portlet-header">New update has been applied.</div>
+        <div class="news-portlet-content">
+            (12-05-12) I've updated the website with various improvements. Shares list can now be filtered. Custom styles have been tuned a little more.
+            Various improvements on the host side. Users who previously couldn't view content should now be able to view the site correctly. Some preparations have been made
+            to gear up for CMS-like page management. Development continues.
+        </div>
+    </div>
+    <div class="news-portlet">
+        <div class="news-portlet-header">Early version of new homepage is live!</div>
+        <div class="news-portlet-content">
+            (12-03-12) While this is still a fairly simple page so far, definitely in need of some shine and content, its enough to get started.
+I'm currently using Node.js 0.8.15 with jQuery 1.8.3 and jQuery-UI 1.9.2. The realtime capabilities available will allow for
+some interesting features later on. For now the goal is to find a design that works for all devices and is simple & efficient to use. Construction continues.
+        </div>
+    </div>
+</div>

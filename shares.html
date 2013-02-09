@@ -1,0 +1,152 @@
+
+<style>
+    div#filter-background {position: absolute;color:white;height: 5px;padding:5px 0px 0px 5px;}
+    input#filter {width: 99%;position: relative; color:white;}
+    .column { width: auto; top: 5px;position: relative; }
+    .portlet { margin: 0; }
+    .portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+    .portlet-header .ui-icon { float: right; }
+    .portlet-content { padding: 0.4em; }
+    .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+    .ui-sortable-placeholder * { visibility: hidden; }
+</style>
+<script>
+    $(function() {
+        
+        $( "a.sharelink" ).button().click(function( event ) {});
+        $( ".column" ).sortable({connectWith: ".column"});
+        $( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+            .find( ".portlet-header" )
+                .addClass( "ui-widget-header ui-corner-all" )
+                .prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+                .end()
+            .find( ".portlet-content" )
+            .hide();
+        $( ".portlet-header" ).click(function() {
+            $( this ).find('.ui-icon').toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+            $( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
+        });
+        $( ".column" ).disableSelection();
+        var $portlets = $('.portlet');
+        $('#filter').css('background-color','transparent')
+            .click(function () {
+                $(this).css('background-color','black');
+            })
+            .blur(function () {
+                if ($('#filter').val() === '') {
+                    $(this).css('background-color','transparent');
+                }    
+            });
+        $('#filter').keyup(function() {
+            var re = new RegExp($(this).val(), "i"); // "i" means it's case-insensitive
+            $portlets.show().filter(function() {
+                return !re.test($(this).find('.portlet-header').text());
+            }).hide();
+        });
+        $('.portlet').click(function() {
+            $('#filter').blur();
+        });
+    });
+</script>
+<div id='filter-background'>Type here to filter list</div>
+<input id="filter" class='ui-corner-all' />
+
+<div class="column">
+    
+    <div class="portlet">
+        <div class="portlet-header">Google+</div>
+        <div class="portlet-content">"With Google+, you can share the right things with the right people."
+        <br><a class='sharelink' href='https://plus.google.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Open Source Initiative</div>
+        <div class="portlet-content">"The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source and to build bridges among different constituencies in the open source community."
+        <br><a class='sharelink' href='http://opensource.org/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">GNU Operating System</div>
+        <div class="portlet-content">"GNU is a Unix-like operating system that is free software—it respects your freedom. You can install Linux-based versions of GNU which are entirely free software."
+        <br><a class='sharelink' href='http://www.gnu.org/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">GNU General Public License</div>
+        <div class="portlet-content">"Free software is a matter of the users' freedom to run, copy, distribute, study, change and improve the software."
+        <br><a class='sharelink' href='http://www.gnu.org/licenses/gpl.html' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">The Linux Kernel Archives</div>
+        <div class="portlet-content">"This is the primary site for the Linux kernel source, but it has much more than just Linux kernels."
+        <br><a class='sharelink' href='http://www.kernel.org/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Linux.org</div>
+        <div class="portlet-content">"Linux.org is a user supported community website whose mission is to promote Linux through education. The content of this website is designed to be interacted with by the Linux Community."
+        <br><a class='sharelink' href='http://www.linux.org/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Distrowatch</div>
+        <div class="portlet-content">The DistroWatch web site was first published on 31 May 2001. It tracks a lot of distributions, features and packages.
+        <br><a class='sharelink' href='http://distrowatch.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Codecademy</div>
+        <div class="portlet-content">"Codecademy is the easiest way to learn to code. It's interactive, fun, and you can do it with your friends."
+        <br><a class='sharelink' href='http://www.codecademy.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Git VCS</div>
+        <div class="portlet-content">"Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
+        <br><a class='sharelink' href='http://git-scm.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Komodo Edit</div>
+        <div class="portlet-content">"Komodo Edit is a fast, smart, free and open-source code editor. Switching your trusty code editor is hard, but give Komodo Edit (or its big brother Komodo IDE) a try: it'll be worth your while."
+        <br><a class='sharelink' href='http://www.activestate.com/komodo-edit' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Node.js</div>
+        <div class="portlet-content">"Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices."
+        <br><a class='sharelink' href='http://nodejs.org/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">jQuery</div>
+        <div class="portlet-content">"jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript."
+        <br><a class='sharelink' href='http://jquery.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">jQuery-UI</div>
+        <div class="portlet-content">"jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice."
+        <br><a class='sharelink' href='http://jqueryui.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">jQuery-Mobile</div>
+        <div class="portlet-content">"A unified, HTML5-based user interface system for all popular mobile device platforms, built on the rock-solid jQuery and jQuery UI foundation. Its lightweight code is built with progressive enhancement, and has a flexible, easily themeable design."
+        <br><a class='sharelink' href='http://jquerymobile.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">jQuery UI Touch Punch</div>
+        <div class="portlet-content">"jQuery UI Touch Punch is a small hack that enables the use of touch events on sites using the jQuery UI user interface library."
+        <br><a class='sharelink' href='http://touchpunch.furf.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+    <div class="portlet">
+        <div class="portlet-header">Ingress</div>
+        <div class="portlet-content">The world around you is not what it seems. It's happening everywhere. They aren't coming. They're already here.
+        <br><a class='sharelink' href='http://www.ingress.com/' target='_blank'>Go</a>
+        </div>
+    </div>
+</div>

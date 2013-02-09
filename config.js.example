@@ -1,0 +1,11 @@
+var config = new Array();
+
+// edit settings to suit.
+config['ip'] = '192.168.1.145';
+config['port'] = 4202;
+config['mask'] = 'http://leeforest.net:4202'
+config['description'] = "Lee Forest's personal homepage - Written in Node.js, jQuery, and jQuery-ui JavaScript frameworks.";
+config['keywords'] = "Nodejs,jQuery,jQuery-ui,JavaScript,Lee,Forest";
+config['author'] = "Lee Forest"
+
+exports.host = config;

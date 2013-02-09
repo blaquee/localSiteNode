@@ -1,0 +1,59 @@
+<style>
+    #tabs {
+        padding: 10px;
+    }
+    #tabs ul li a {
+        font-size: 17px;;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        
+/*touchpunch.js*/
+(((touchpunch)))
+/*end touchpunch*/
+
+	});
+    $(function() {
+        $( "#tabs" ).tabs()
+            //.resizable({
+            //    grid: 10,
+            //    minHeight: 385,
+            //    minWidth: 285
+            //})
+            //.draggable();
+        $('header').draggable();
+        //$( "#tabs" ).tabs({ active: 1 });
+    });
+</script>
+<div id='header'>
+    <header><a href="https://plus.google.com/100668783035075698145?rel=author">Lee Forest</a></header>
+</div>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">About</a></li>
+        <li><a href="#tabs-2">Shares</a></li>
+        <li><a href="#tabs-3">News</a></li>
+    </ul>
+    <div id="tabs-1">
+        
+<!--about.html-->
+(((about)))
+<!--end about.html-->
+
+    </div>
+    <div id="tabs-2">
+        
+<!--shares.html-->
+(((shares)))
+<!--end shares.html-->
+
+    </div>
+    <div id="tabs-3">
+        
+<!--news.html-->
+(((news)))
+<!--end news.html-->
+
+    </div>
+</div>
